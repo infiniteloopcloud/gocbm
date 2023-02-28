@@ -21,18 +21,6 @@ type GetIndexStatsOpts struct {
 	IndexName string
 }
 
-type IndexStatsResponse struct {
-	PIndexes map[string]PIndex `json:"pindexes"`
-}
-
-type PIndex struct {
-	Basic PIndexBasic `json:"basic"`
-}
-
-type PIndexBasic struct {
-	DocCount int64 `json:"DocCount"`
-}
-
 func GetIndexStats(opts GetIndexStatsOpts) (*IndexStatsResponse, error) {
 	agentGroup, err := gocbcore.CreateAgentGroup(opts.GetAgentGroupConfig())
 	if err != nil {
